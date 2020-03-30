@@ -1,15 +1,9 @@
-@import "_variables.scss";
+// for logotype
+@import url('https://fonts.googleapis.com/css?family=Roboto:500|Noto+Sans');
+// for design variant
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 
-@font-face {
-  font-family: "museo";
-  src: font-url("museo500-regular.ttf");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "museo";
-  src: font-url("museo300-regular.ttf");
-  font-weight: normal;
-}
+@import "_variables.scss";
 
 *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
@@ -19,11 +13,11 @@
 }
 
 body{
-  background: $grey1;
+  background: $footer;
 }
 
 h1, h2, h3, h4, h5{
-  font-family: "museo", Helvetica Neue, Arial, Helvetica, sans-serif;
+  font-family: $stack;
   color: $grey1;
 }
 
@@ -50,23 +44,21 @@ a{
 }
 
 .site-header{
-  background: $white;
+  background: $brand;
   padding: 15px;
-  // box-shadow: 0px 2px 2px rgba(0,0,0,0.05);
-  // position: relative;
-  // z-index: 2;
   .site-header__masthead{
     display: inline-block;
   }
   img{
     display: block;
+    width: 300px;
   }
 }
 
 
 .main-content-area{
   padding: 40px 15px;
-  background: $very-pale;
+  background: $white;
   @media screen and (min-width: $breakpoint){
     padding: 60px 15px 80px 15px;
   }
@@ -79,7 +71,7 @@ a{
 }
 
 .site-footer{
-  background: $grey1;
+  background: $footer;
   padding: 50px 15px;
 
   .site-footer__notice{
@@ -98,28 +90,26 @@ a{
 }
 
 .button{
-  background: $yellow;
+  background: $brand;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100%;
   padding: 15px;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 1.1rem;
   text-align: center;
-  color: $grey1;
+  color: $white;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0px 4px 0px darken($yellow, 20);
   &:hover{
-    background: darken($yellow, 10);
+    background: $button-hover;
   }
   &:active{
     transform: translateY(4px);
-    background: darken($yellow, 20);
+    background: $button-hover;
     box-shadow: none;
   }
   &:focus{
@@ -199,7 +189,7 @@ a{
 
 .beta-banner{
   background: $very-pale;
-  padding: 10px 15px 0px 15px;
+  padding: 10px 15px;
   font-size: 0.9rem;
   .beta-banner__inner{
     display: flex;
