@@ -27,13 +27,17 @@ p{
 }
 
 a{
-  color: $blue1;
+  color: $link;
   &:hover{
+    color: $hover;
     text-decoration: none;
   }
   &:focus{
     background: $yellow;
     outline: 3px solid $yellow;
+  }
+  &:visited {
+    color: $visited;
   }
 }
 
