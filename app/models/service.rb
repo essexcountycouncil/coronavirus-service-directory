@@ -20,7 +20,8 @@ class Service < ApplicationRecord
       ["Financial support", "financial"],
       ["Book drops and entertainment", "entertainment"],
       ["Prescription pickups", "prescriptions"],
-      ["Physical and mental wellbeing", "wellbeing"]
+      ["Physical and mental wellbeing", "wellbeing"],
+      ["Testing", "testing"]
     ]
   end
 

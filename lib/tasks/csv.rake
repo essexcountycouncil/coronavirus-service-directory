@@ -36,18 +36,21 @@ task :csv => :environment do
         if row[8] && row[8].downcase.strip == "yes"
             categories.push("wellbeing")
         end
+        if row[9] && row[9].downcase.strip == "yes"
+            categories.push("testing")
+        end
         service.category = categories
 
-        service.url = row[9]
-        service.phone = row[10]
-        service.email = row[11]
-        service.postcode = row[12]
+        service.url = row[10]
+        service.phone = row[11]
+        service.email = row[12]
+        service.postcode = row[13]
         # ...
-        service.recommended = row[15]
-        service.key_point_1 = row[16]
-        service.key_point_2 = row[17]
-        service.key_point_3 = row[18]
-        service.how_to_contact = row[19]
+        service.recommended = row[16]
+        service.key_point_1 = row[17]
+        service.key_point_2 = row[18]
+        service.key_point_3 = row[19]
+        service.how_to_contact = row[20]
 
         service.save
     end
