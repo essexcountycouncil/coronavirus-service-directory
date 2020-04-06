@@ -5,6 +5,18 @@
 
 @import "_variables.scss";
 
+// modularscale import //
+@import 'modularscale/vars';
+@import 'modularscale/settings';
+@import 'modularscale/pow';
+@import 'modularscale/strip-units';
+@import 'modularscale/sort';
+@import 'modularscale/target';
+@import 'modularscale/function';
+@import 'modularscale/round-px';
+@import 'modularscale/respond';
+@import 'modularscale/sugar';
+
 *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
     box-sizing: border-box;
@@ -13,7 +25,7 @@
 }
 
 body{
-  background: $footer;
+  background: $brand4;
 }
 
 h1, h2, h3, h4, h5{
@@ -41,8 +53,208 @@ a{
   }
 }
 
+////
 
-.container{
+$modularscale: (
+  base: $ms-base,
+  ratio: $major-second
+);
+
+@mixin p {
+  font-size: ms(0);
+  line-height: $baseline;
+  margin-top: 0;
+  margin-bottom: $baseline*0.5;
+  color: $body-text-colour;
+  text-transform: none;
+}
+
+p {
+  @include p;
+  @include word-break;
+  &.lede {
+    font-size: ms(1);
+  }
+  & + ul, ol {
+    margin-top: 0;
+  }
+}
+
+@mixin small {
+  font-size: ms(-1);
+  line-height: 1.6153846rem;
+}
+
+@mixin smaller {
+  font-size: ms(-2);
+  line-height: 1.14286rem;
+}
+
+@mixin h1 {
+  font-family: $stack;
+  font-size: ms(9);
+  font-weight: $bold;
+  text-transform: none;
+  line-height: $baseline*2;
+  letter-spacing: -1.5px;
+  margin-top: $baseline*1.5;
+  margin-bottom: $baseline*1.5;
+}
+
+@mixin h2 {
+  font-family: $stack;
+  font-size: ms(5);
+  font-weight: $bold;
+  line-height: $baseline*1.5;
+  letter-spacing: -1.5px;
+  margin-top: $baseline*1.5;
+  margin-bottom: $baseline*0.5;
+  text-transform: none;
+}
+
+@mixin h3 {
+  font-family: $stack;
+  font-size: ms(3);
+  font-weight: $bold;
+  line-height: $baseline;
+  letter-spacing: -1.5px;
+  margin-top: $baseline*1.5;
+  margin-bottom: $baseline*0.5;
+  text-transform: none;
+  letter-spacing: -0.5px;
+}
+
+@mixin h4 {
+  font-family: $stack;
+  font-size: ms(1);
+  font-weight: $bold;
+  line-height: $baseline;
+  letter-spacing: -1.5px;
+  margin-top: $baseline*1.5;
+  margin-bottom: $baseline*0.5;
+  text-transform: none;
+  letter-spacing: -0.5px;
+}
+
+// page-heading is used at the top of each page
+h1, .h1, .page-heading {
+  @include h1;
+}
+
+// content-heading is used for each new and unlreated piece of content within a page.
+h2, .h2, .content-heading {
+  @include h2;
+}
+
+// .content-heading ~ .content-heading,
+// .page-heading ~ .content-heading {
+//   @include content-break-large;
+//   padding-top: $baseline;
+// }
+
+// section-heading is used for each section within content on a page.
+h3,.h3, .section-heading {
+  @include h3;
+}
+
+.content > h1.h3 {
+  margin-bottom: $baseline*1.5;
+}
+
+// sub-section-heading is used for those occasional
+// cases of additional breaking down within a section is required
+// or additionally certain preview sections
+h4, .h4, .sub-section-heading {
+  @include h4;
+}
+
+strong {
+  font-weight: $bold;
+}
+
+em, i {
+  font-style: italic;
+} 
+
+// Link styles
+a:link {
+  color: $link;
+}
+
+a:visited {
+  color: $visited;
+}
+
+a:hover {
+  color: $hover;
+}
+
+a:active {
+  color: $active;
+}
+
+// added this for general removing hyperlink
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: $black;
+}
+
+// Set focus styles
+a {
+  // Allow RGBA here, this line has been copied from govuk_template
+  // scss-lint:disable ColorVariable
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+
+a:focus {
+  color: $black;
+  background-color: $focus-colour;
+  outline: $border-thick solid $focus-colour;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: $border-thick solid $focus-colour;
+  outline-offset: 0;
+}
+
+
+//Lists
+
+ol,
+ul {
+  list-style-position: outside;
+  padding-left:10px;
+  margin-left: 20px;
+  margin-top: $baseline;
+  margin-bottom: $baseline;
+  li {
+    padding-left: 10px;
+    margin-bottom: 0;
+    line-height: $baseline;
+  }
+  &.no-bullets li {
+    list-style: none;
+  }
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+
+////
+
+
+.container, .header {
   max-width: $max-width;
   margin: 0 auto;
 }
@@ -56,6 +268,71 @@ a{
   img{
     display: block;
     width: 300px;
+  }
+}
+
+.header-background {
+  padding: 0.8125rem 15px;
+  background-color: $brand;
+  border-bottom: $border-thin solid $brand4;
+  height: auto;
+  position: relative;
+  z-index: 20;
+  .header {
+    .logo-wrap {
+      height: $form-height*0.75;
+      a.logo-text {
+        font-family: $stack-logo;
+        font-size: ms(4);
+        line-height: $form-height*0.75;
+        color: $white;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-indent: 0;
+        &:hover {
+          text-decoration: none;
+          border-bottom: $border-normal $white solid;
+        }
+        &:focus {
+          background-color: $brand;
+          outline: $border-thick solid $focus-colour;
+          border-bottom: $border-normal $white solid;
+        }
+      }
+      a.logo-text.seax {
+        float: left;
+        background-position: 0 0;
+        line-height: 1;
+        background: url('/assets/seax.png') no-repeat;
+        background-size: $seax-width $seax-height;
+        border-bottom: $border-normal $brand solid;
+        margin-top: 4px;
+        margin-bottom: -6px;
+        padding-bottom: 6px;
+        @media print {
+          background-image: none;
+          border-bottom: $border-normal $white solid;
+        }
+        &:hover {
+          text-decoration: none;
+          border-bottom: $border-normal $white solid;
+        }
+        &:focus {
+          background-color: $brand;
+          outline: $border-thick solid $focus-colour;
+          border-bottom: $border-normal $white solid;
+        }
+        img {
+          vertical-align: bottom;
+          height: initial;
+          display: inline-block;
+          margin: 0;
+          @media print {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -75,7 +352,7 @@ a{
 }
 
 .site-footer{
-  background: $footer;
+  background: $brand4;
   padding: 50px 15px;
 
   .site-footer__notice{
@@ -109,11 +386,11 @@ a{
   border: none;
   cursor: pointer;
   &:hover{
-    background: $button-hover;
+    background: $button-hover-darken;
   }
   &:active{
     transform: translateY(4px);
-    background: $button-hover;
+    background: $button-hover-darken;
     box-shadow: none;
   }
   &:focus{
@@ -209,6 +486,7 @@ a{
   }
   .beta-banner__message{
     padding-top: 1px;
+    margin-bottom: 0;
   }
 }
 
