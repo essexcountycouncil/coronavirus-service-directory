@@ -21,7 +21,8 @@ class Service < ApplicationRecord
       ["Book drops and entertainment", "entertainment"],
       ["Prescription pickups", "prescriptions"],
       ["Physical and mental wellbeing", "wellbeing"],
-      ["Testing", "testing"]
+      ["Testing", "testing"],
+      ["Testing another", "testing-another"]
     ]
   end
 
