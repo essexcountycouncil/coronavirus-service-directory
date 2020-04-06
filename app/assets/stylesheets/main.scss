@@ -371,7 +371,7 @@ ul {
 }
 
 .button{
-  background: $brand;
+  background: $button;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -385,6 +385,9 @@ ul {
   text-decoration: none;
   border: none;
   cursor: pointer;
+  &:link {
+    color: $white;
+  }
   &:hover{
     background: $button-hover-darken;
   }
@@ -420,7 +423,8 @@ ul {
 
 .breadcrumbs{
   list-style: none;
-  margin-bottom: 15px;
+  margin: 0;
+  padding: 0;
   .breadcrumbs__crumb{
     display: inline-block;
     color: $grey1;
