@@ -14,15 +14,14 @@ class Service < ApplicationRecord
 
   def self.categories
     [
-      ["Groceries and cooked meals", "food"],
-      ["Dog walking", "pets"],
-      ["Staying social", "social"],
-      ["Financial support", "financial"],
-      ["Book drops and entertainment", "entertainment"],
-      ["Prescription pickups", "prescriptions"],
-      ["Physical and mental wellbeing", "wellbeing"],
-      ["Testing", "testing"],
-      ["Testing another", "testing-another"]
+      ["Coping with and managing anxiety", "anxiety"],
+      ["Coping with and managing change", "change"],
+      ["Preparing and coping with loss", "loss"],
+      ["Parenting in challenging circumstances", "parenting"],
+      ["Relationships in challenging circumstances", "relationships"],
+      ["Keeping busy; building a routine at home", "routine"],
+      ["Feeling lonely; connecting with others whilst at home", "lonely"],
+      ["Staying active", "active"]
     ]
   end
 
