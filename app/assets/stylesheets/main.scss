@@ -370,7 +370,7 @@ ul {
   }
 }
 
-a.button{
+a.button, .button {
   background: $button;
   display: flex;
   flex-direction: row;
@@ -410,10 +410,8 @@ a.button{
 }
 
 .important{
-  padding: 25px;
-  background: transparentize($blue2, 0.5);
-  border-left: 4px solid $blue1;
-  margin-bottom: 45px;
+  padding: $baseline*0.5;
+  border: $border-thick solid $info;
   .important__link{
     display: inline-block;
     margin-top: 10px;
