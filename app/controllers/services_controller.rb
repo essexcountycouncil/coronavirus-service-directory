@@ -5,6 +5,8 @@ class ServicesController < ApplicationController
     end
 
     def index
+        @group = Service.group
+        
         results = Geocoder.search(params[:postcode], region: "gb")
 
         if results.length > 0
