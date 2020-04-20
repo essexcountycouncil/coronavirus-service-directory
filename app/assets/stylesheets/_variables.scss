@@ -110,6 +110,10 @@ $overlay-brand: rgba(0,22,150,0.17);
 
 // element color
 $button: #00823b; // green taken from gov.uk
+
+// $button: $brand;
+$button-hover: #4b1b40;
+
 $button-search-box: $grey-dark;
 $button-search-box-hover: #151515;
 $white-on-black-hover: #d9d9d9;
