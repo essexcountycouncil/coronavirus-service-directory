@@ -6,6 +6,11 @@ class ServicesController < ApplicationController
 
     def index
         @group = Service.group
+
+        if params[:group]
+            @services = Service
+                .where("category && ARRAY[?]::varchar[]", params[:group])
+        end
         
         results = Geocoder.search(params[:postcode], region: "gb")
 
