@@ -1,0 +1,44 @@
+@import "_variables.scss";
+
+a.button, .button {
+  background: $brand;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  font-weight: normal;
+  font-size: 1.1rem;
+  text-align: center;
+  color: $white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+
+  &:link {
+    color: $white;
+  }
+  &:hover{
+    background: $brand-hover-darken;
+  }
+  &:active{
+    transform: translateY(4px);
+    background: $brand-hover-darken;
+    box-shadow: none;
+  }
+  &:focus{
+    outline: none;
+  }
+  &:visited {
+    color: $white;
+  }
+  @media screen and (min-width: $breakpoint){
+    max-width: 250px;
+    font-size: 1.2rem
+  }
+  .button__icon{
+    margin-left: 10px;
+    height: 15px;
+  }
+}
