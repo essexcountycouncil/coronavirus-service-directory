@@ -5,9 +5,7 @@
         <h2 class="service-card__name"><%= s.name %></h2>
         <p class="service-card__description"><%= s.description %></p>
         <p class="service-card__age">Appropriate for: 
-            <% @group.each do |c| %>                
-                <%= c[0] %>
-            <% end %>
+            <%= s.age %>
         </p>
 
         <% unless s.recommended %>
