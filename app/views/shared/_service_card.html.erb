@@ -5,7 +5,7 @@
         <h2 class="service-card__name"><%= s.name %></h2>
         <p class="service-card__description"><%= s.description %></p>
         <p class="service-card__age">Appropriate for: 
-            <%= s.age %>
+            <%= s.age.join(", ") %>
         </p>
 
         <% unless s.recommended %>

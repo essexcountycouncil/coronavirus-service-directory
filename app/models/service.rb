@@ -23,13 +23,4 @@ class Service < ApplicationRecord
     ]
   end
 
-  def self.group
-    [
-      ["Child, ", "child"],
-      ["Young Person, ", "young"],
-      ["Adult, ", "adult"],
-      ["All ages, ", "all"]
-    ]
-  end
-
 end

@@ -5,7 +5,6 @@ class ServicesController < ApplicationController
     end
 
     def index
-        @group = Service.group
 
         if params[:group]
             @services = Service
