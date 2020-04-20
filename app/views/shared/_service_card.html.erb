@@ -4,6 +4,10 @@
     <header class="service-card__header">
         <h2 class="service-card__name"><%= s.name %></h2>
         <p class="service-card__description"><%= s.description %></p>
+        <p class="service-card__age">Appropriate for: 
+            <%= s.age.join(", ") %>
+        </p>
+
         <% unless s.recommended %>
             <small class="service-card__distance"><%= s.rough_distance %></small>
         <% end %>
