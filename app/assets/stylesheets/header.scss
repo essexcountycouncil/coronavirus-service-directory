@@ -1,13 +1,14 @@
 @import "_variables.scss";
 
 .header-background {
-  padding: 0.8125rem 15px;
+  padding: 0.8125rem 0;
   background-color: $brand;
   border-bottom: $border-thin solid $brand4;
   height: auto;
   position: relative;
   z-index: 20;
   .header {
+    padding: 0 15px;
     .logo-wrap {
       height: $form-height*0.75;
       a.logo-text {
