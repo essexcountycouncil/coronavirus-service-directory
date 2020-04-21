@@ -5,34 +5,29 @@ class ServicesController < ApplicationController
     end
 
     def index
-        results = Geocoder.search(params[:postcode], region: "gb")
+        results = search
 
         if results.length > 0
             @top_result = Service
                 .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories])
                 .limit(1)
 
-            @result = results.first.formatted_address
-            @coordinates = Geocoder.coordinates(params[:postcode])
+            @result = results.first
 
             if @top_result.length > 0
                 if params[:categories]
                     @services = Service
-                        .where("category && ARRAY[?]::varchar[] AND id != ?", params[:categories], @top_result[0].id)
-                        .near(results.first.coordinates, 200)
+                        .where("category && ARRAY[?]::varchar[] AND id != ?", params[:categories], @top_result[0].id)    
                 else
                     @services = Service
-                        .where("id != ?", @top_result[0].id)
-                        .near(results.first.coordinates, 200)
+                        .where("id != ?", @top_result[0].id)   
                 end
             else
                 if params[:categories]
                     @services = Service
-                        .where("category && ARRAY[?]::varchar[]", params[:categories])
-                        .near(results.first.coordinates, 200)
+                        .where("category && ARRAY[?]::varchar[]", params[:categories])                 
                 else
-                    @services = Service
-                        .near(results.first.coordinates, 200)
+                    @services = Service                        
                 end
             end
         else

@@ -69,12 +69,6 @@
             </div>
         </fieldset>
 
-        <div class="field">
-            <label  class="field__label"for="postcode"><h2>Where are you?</h2></label>
-            <p class="field__hint">Enter your Essex postcode</p>
-            <%= f.text_field :postcode, required: true, placeholder: "eg. CM1 1QH", class: "field__text-input" %>
-        </div>
-
         <%= f.submit "See results", class: "button" %>
     <% end %>
 </div>
