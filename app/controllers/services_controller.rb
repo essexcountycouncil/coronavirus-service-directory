@@ -7,6 +7,10 @@ class ServicesController < ApplicationController
     def index
         results = search
 
+        if params[:categories].blank?
+            redirect_to search_services_path, :notice => "Please make sure you have selected an area you need help with."
+        end        
+
         if results.length > 0
             @top_result = Service
                 .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories])
