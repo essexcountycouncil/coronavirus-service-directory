@@ -6,6 +6,7 @@
         <p class="service-card__description"><%= s.description %></p>
         <p class="service-card__age">Appropriate for: 
             <%= s.age.join(", ") %>
+            <p class="search-result-title">You searched for <%= @result.values_at(0).join(", ") %></p>
         </p>
     </header>
     <ul class="service-card__key-points">
