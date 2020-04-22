@@ -68,6 +68,14 @@
             margin-top: 15px;
         }
     }
+    .service-card__age {
+        margin-bottom: 0;
+    }
+    .service-card__age, 
+    .service-card__categories {
+        font-size: ms(-1);
+        line-height: 1.6153846rem;
+    }
     .service-card__key-points{
         list-style: none;
         margin-bottom: 30px;

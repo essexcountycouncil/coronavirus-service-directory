@@ -16,22 +16,22 @@ task :csv => :environment do
 
         categories = []
         if row[2] && row[2].downcase.strip == "yes"
-            categories.push("understanding")
+            categories.push("Understanding coronavirus")
         end
         if row[3] && row[3].downcase.strip == "yes"
-            categories.push("change")
+            categories.push("Managing and coping with change")
         end
         if row[4] && row[4].downcase.strip == "yes"
-            categories.push("loss")
+            categories.push("Separation and loss")
         end
         if row[5] && row[5].downcase.strip == "yes"
-            categories.push("anxiety")
+            categories.push("Manging and coping with anxiety")
         end
         if row[6] && row[6].downcase.strip == "yes"
-            categories.push("relationships")
+            categories.push("Maintaining healthy relationships")
         end
         if row[7] && row[7].downcase.strip == "yes"
-            categories.push("active")
+            categories.push("Staying active and curious")
         end       
         service.category = categories
         
