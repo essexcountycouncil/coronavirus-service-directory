@@ -1,6 +1,6 @@
-<div class="preview-list results">
+<div class="preview-list results <% if recommended %>service-card--recommended<% end %>">
   <ul class="grid-row">
-    <li class="<% if recommended %>service-card--recommended<% end %>" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
+    <li data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
       <div class="result">
         <div class="column-half">
           <div class="details">

@@ -3,11 +3,32 @@
 
 .results {
     background: $grey-lighter;
-    border-bottom: $border-thin solid $grey-light;
+    border-bottom: $border-thin solid $white;
     float: left;
     width: 100%;
     padding-top: $baseline;
     padding-bottom: $baseline;
+    position: relative;
+    &.service-card--recommended{
+        border: $border-thick solid $brand3;
+        padding-top: $baseline*2.5;
+        margin-bottom: $baseline*0.5;
+        &:before{
+            background: $brand3;
+            position: absolute;
+            content: "Top result";
+            color: $white;
+            font-weight: bold;
+            padding: 4px 8px;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            writing-mode: sideways-lr;
+            height: 30px;
+            text-align: center;
+            top: 0;
+        }
+    }    
     &:last-child {
         border: none;
         margin-bottom: $baseline*2;
