@@ -8,7 +8,10 @@
 .container, .header {
   max-width: $max-width;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 30px;
+  @media screen and (min-width: $breakpoint){
+    padding: 0 30px;
+  }
 }
 
 .site-header{
@@ -24,7 +27,7 @@
 }
 
 .background {
-  background: $very-pale;
+  background: $white;
   padding: $baseline 0;
   h2 {
     margin-top: 0;
@@ -34,6 +37,23 @@
 .main-content-area{
   background: $white;
   padding-bottom: $baseline;
+}
+
+.grid-row {
+  float: left;
+  width: 100%;
+}
+
+.column-half{
+  float: left;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  @media screen and (min-width: $breakpoint){
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 50%;
+  }
 }
 
 .two-thirds{
