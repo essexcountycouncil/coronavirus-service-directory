@@ -20,7 +20,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
+    <div id="skiplink-container" role="region" aria-label="skiplink">
+      <div>
+        <a href="#content" class="skiplink" id="skiplink">Skip to main content</a>
+      </div>
+    </div>
     <header class="header-background">
       <div class="header">
         <div class="nav">
@@ -41,7 +45,7 @@
       </div>
     </section>
 
-    <div class="main-content-area">
+    <div class="main-content-area" id="content">
       <div class="container">
         <%= yield %>
       </div>
