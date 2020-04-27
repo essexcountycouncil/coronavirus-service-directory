@@ -1,32 +1,33 @@
-<li class="service-card <% if recommended %>
-    service-card--recommended
-<% end %>" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
-    <header class="service-card__header">
-        <h2 class="service-card__name"><%= s.name %></h2>
-        <p class="service-card__description"><%= s.description %></p>
-        <p class="service-card__age">Appropriate for: 
-            <%= s.age.join(", ") %>
-        </p>
-    </header>
-    <ul class="service-card__key-points">
-        <% if s.key_point_1 %>
-            <li class="service-card__key-point"><%= s.key_point_1 %></li>
-        <% end %>
-        <% if s.key_point_2 %>
-            <li class="service-card__key-point"><%= s.key_point_2 %></li>
-        <% end %>
-        <% if s.key_point_3 %>
-            <li class="service-card__key-point"><%= s.key_point_3 %></li>
-        <% end %>
-    </ul>
-    <footer class="service-card__footer">
-        <% if s.url %>
-            <a href="<%= s.url %>" class="button" target="blank">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-        <% elsif s.phone %>
-            <p class="service-card__phone"><%= s.phone %> </p>
-        <% elsif s.email %>
-            <a href="mailto:<%= s.email %>%" class="button">Send email <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-        <% end %>
-        <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
-    </footer>
-</li>
+<div class="preview-list results">
+  <ul class="grid-row">
+    <li class="<% if recommended %>service-card--recommended<% end %>" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
+      <div class="result">
+        <div class="column-half">
+          <div class="details">
+            <p class="h2"><% if s.url %><a href="<%= s.url %>"><%= s.name %></a><% end %></p>
+            <p class="service-card__description"><%= s.description %></p>
+            <% if s.phone %><p class="service-card__phone"><%= s.phone %> </p><% end %>
+            <% if s.email %><p class="service-card__email"><a href="mailto:<%= s.email %>%">Contact by email</a></p><% end %>
+            <p class="service-card__contact-prompt"><small><%= s.how_to_contact %></small></p>
+          </div>
+        </div>
+        <div class="column-half">
+          <% if s.key_point_1 or s.key_point_2 or s.key_point_3 or s.age %>
+            <ul class="key-points">
+              <% if s.key_point_1 %>
+                <li><%= s.key_point_1 %></li>
+              <% end %>
+              <% if s.key_point_2 %>
+                <li><%= s.key_point_2 %></li>
+              <% end %>
+              <% if s.key_point_3 %>
+                <li><%= s.key_point_3 %></li>
+              <% end %>
+                <li>Appropriate for <%= s.age.join(", ") %></li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

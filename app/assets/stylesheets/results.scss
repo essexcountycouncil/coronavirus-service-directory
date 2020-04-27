@@ -1,4 +1,39 @@
 @import "_variables.scss";
+@import "typography.scss";
+
+.results {
+    background: $grey-lighter;
+    border-bottom: $border-thin solid $grey-light;
+    float: left;
+    width: 100%;
+    padding-top: $baseline;
+    padding-bottom: $baseline;
+    &:last-child {
+        border: none;
+        margin-bottom: $baseline*2;
+    }
+    .h2 {
+        @include h2;
+        margin-top: 0;
+    }
+    .key-points {
+        background: $white;
+        padding: 15px;
+        margin-top: $baseline;
+        li:last-child {
+            margin-top: $baseline*0.5;
+        }
+        li:first-child {
+            margin-top: 0;
+        }
+        @media screen and (min-width: $breakpoint){
+            margin-top: 0;
+        }        
+    }
+    .service-card__email {
+        margin-top: $baseline*0.5;
+    }
+}
 
 .service-results{
     list-style: none;
