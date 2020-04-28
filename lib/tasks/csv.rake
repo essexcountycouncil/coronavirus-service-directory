@@ -59,7 +59,7 @@ task :csv => :environment do
             age_group.push("adults")
         end
         if row[11] && row[11].downcase.strip == "yes"
-            age_group.push("for all ages")
+            age_group.push("all ages")
         end
         service.age = age_group    
 

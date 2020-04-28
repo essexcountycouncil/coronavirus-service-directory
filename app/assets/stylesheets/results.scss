@@ -18,15 +18,14 @@
             position: absolute;
             content: "Top result";
             color: $white;
-            font-weight: bold;
-            padding: 4px 8px;
+            padding: $baseline*0.25;
             bottom: 0;
-            left: 0;
+            left: -$border-thick;
             text-align: center;
             writing-mode: sideways-lr;
-            height: 30px;
+            height: 1.3rem;
             text-align: center;
-            top: 0;
+            top: -$border-thick;
         }
     }    
     &:last-child {
@@ -45,6 +44,9 @@
         }
         li:first-child {
             margin-top: 0;
+        }
+        .key-point-age {
+            font-weight: $semi;
         }
         @media screen and (min-width: $breakpoint){
             margin-top: 0;
