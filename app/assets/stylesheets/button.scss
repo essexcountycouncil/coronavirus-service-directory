@@ -1,44 +1,102 @@
 @import "_variables.scss";
 
-a.button, .button {
-  background: $brand;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 15px;
-  font-weight: normal;
-  font-size: 1.1rem;
-  text-align: center;
-  color: $white;
+@mixin button {
+  @media print {
+    display: none;
+  }
+  font-family: $stack;
+  font-size: ms(0);
+  line-height: 1.4em;
+  background-color: $button;
+  position: relative;
+  padding: $baseline*0.25 $gutter*0.25; // 10px 15px 5px
+  border: $border-normal $button solid;
+  outline: $border-thin solid transparent; // keep some button appearance when changing colour settings in browsers
+  outline-offset: -1px; // fixes bug in Safari that outline width on focus is not overwritten, is reset to 0 on focus in govuk_template
+  -webkit-appearance: none;
   text-decoration: none;
-  border: none;
+  -webkit-font-smoothing: antialiased;
   cursor: pointer;
-
-  &:link {
-    color: $white;
-  }
-  &:hover{
-    background: $brand-hover-darken;
-  }
-  &:active{
-    transform: translateY(4px);
-    background: $brand-hover-darken;
-    box-shadow: none;
-  }
-  &:focus{
-    outline: none;
-  }
   &:visited {
+    background-color: $button;
+  }
+  &:hover,
+  &:focus {
+    border-color: $button-hover-darken;
+    background-color: $button-hover-darken;
+  }
+  &:active {
+    top: 2px;
+  }
+  // Set text colour depending on background colour
+  @if lightness($button) < 50% {
     color: $white;
+    &:link,
+    &:link:focus,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $white;
+    }
+  } @else {
+    color: $black;
+    &:link,
+    &:link:focus,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $black;
+    }
   }
-  @media screen and (min-width: $breakpoint){
-    max-width: 250px;
-    font-size: 1.2rem
+  // making the click target bigger than the button
+  // (and fill the space made when the button moves)
+  &:before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
-  .button__icon{
-    margin-left: 10px;
-    height: 15px;
+  &:active:before {
+    top: -10%;
+    height: 120%;
   }
+}
+
+.button, .btn {
+  @include button;
+}
+
+button {
+  &.text {
+    font-size: ms(0);
+    line-height: 1.4em;
+    color: $link;
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: $baseline*0.5 0;
+    &:hover {
+      color: $hover;
+    }
+    &:focus {
+      color: $black;
+      background-color: $focus-colour;
+    }
+  }
+}
+
+// Fix unwanted button padding in Firefox
+.button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.button:focus {
+  outline: $border-thick solid $focus-colour;
 }

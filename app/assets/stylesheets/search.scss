@@ -50,7 +50,7 @@
   padding-left: 50px;
   padding-top: 10px;
   &:focus-within label:before{
-    outline: 3px solid $yellow;
+    outline: 3px solid $focus-colour;
   }
   .checkbox__input{
     font-size: 2rem;
@@ -76,12 +76,12 @@
   }
   .checkbox__label{
     cursor: pointer;
-    color: $grey1;
+    color: $black;
     &:before{
       content: "";
       display: inline-block;
       background: $white;
-      border: 2px solid $grey1;
+      border: 2px solid $black;
       width: 35px;
       height: 35px;
       position: absolute;
