@@ -13,13 +13,14 @@
 @import 'modularscale/sugar';
 
 *{
-    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+    font-family: $stack;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body{
+  font-family: $stack;
   background: $brand4;
 }
 
