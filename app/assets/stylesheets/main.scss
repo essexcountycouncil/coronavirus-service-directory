@@ -108,7 +108,7 @@
 }
 
 .beta-banner{
-  background: $very-pale;
+  background: $grey-lighter;
   padding: 10px 0px;
   .beta-banner__inner{
     display: flex;
@@ -116,11 +116,11 @@
     align-items: flex-start;
   }
   .beta-banner__tag{
-    background: $yellow;
+    background: $beta;
     text-transform: uppercase;
     padding: 3px 7px;
     margin-right: 10px;
-    color: $grey1;
+    color: $text-colour;
   }
   .beta-banner__message{
     padding-top: 1px;
