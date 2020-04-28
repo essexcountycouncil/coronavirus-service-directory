@@ -28,18 +28,6 @@
   &:active {
     top: 2px;
   }
-  &.disabled,
-  &[disabled="disabled"],
-  &[disabled] {
-    &:hover {
-      cursor: default;
-      background-color: $button;
-    }
-
-    &:active {
-      top: 0;
-    }
-  }
   // Set text colour depending on background colour
   @if lightness($button) < 50% {
     color: $white;
@@ -111,13 +99,4 @@ button {
 
 .button:focus {
   outline: $border-thick solid $focus-colour;
-}
-
-// Disabled buttons
-.button[disabled="disabled"] {
-  background: $button;
-}
-
-.button[disabled="disabled"]:focus {
-  outline: none;
 }
