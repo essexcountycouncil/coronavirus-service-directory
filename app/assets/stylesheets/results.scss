@@ -2,12 +2,13 @@
 @import "typography.scss";
 
 .results {
-    background: $grey-lighter;
-    border-bottom: $border-thin solid $white;
+    background: $white;
+    border: $border-thin solid $grey-light;
     float: left;
     width: 100%;
     padding-top: $baseline;
     padding-bottom: $baseline;
+    margin-bottom: $baseline*0.5;
     position: relative;
     &.service-card--recommended{
         border: $border-thick solid $brand3;
