@@ -6,19 +6,6 @@
     <h1 class="page-title">These groups and services may be able to help</h1>
 </div>
 
-<fieldset class="field">
-    <legend class="field__label"><h2>Filter by age group</h2></legend>
-    <!-- <p class="field__hint">Select as many as you like</p> -->
-    <div class="checkboxes age">
-        <% @ages.each do |a| %>
-            <div class="checkbox">
-                <input class="checkbox__input" type="checkbox" name="ages[]" value="<%= a[1] %>" id="<%= a[1] %>">
-                <label class="checkbox__label" for="<%= a[1] %>"><%= a[0] %></label>
-            </div>
-        <% end %>                           
-    </div>
-</fieldset>
-
 <ol class="service-results">
     <% @top_result.each do |s| %>
         <%= render partial: "shared/service_card", locals: {s: s, recommended: true} %>

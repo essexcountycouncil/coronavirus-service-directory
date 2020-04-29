@@ -2,11 +2,12 @@ class ServicesController < ApplicationController
 
     def search
         @categories = Service.categories
+        @ages = Service.ages   
     end
 
-    def index
-        @ages = Service.ages
-        results = search
+    def index        
+        results = search     
+
 
         if params[:categories].blank?
             redirect_to search_services_path, :notice => "Please make sure you have selected an area you need help with."
@@ -14,7 +15,7 @@ class ServicesController < ApplicationController
 
         if results.length > 0
             @top_result = Service
-                .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories])
+                .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories]) 
                 .limit(1)
 
             @result = results.first
@@ -35,9 +36,42 @@ class ServicesController < ApplicationController
                     @services = Service                        
                 end
             end
+        else            
+            redirect_to search_services_path, :notice => "Couldn't find any services near that location. Please make sure your location is a valid Camden area."
+        end 
+
+
+        if params[:ages].blank?
+            redirect_to search_services_path, :notice => "Please make sure you have selected an age group."
+        end  
+
+        if results.length > 0
+            @top_result = Service
+                .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:ages]) 
+                .limit(1)
+
+            @result = results.first
+
+            if @top_result.length > 0
+                if params[:ages]
+                    @services = Service
+                        .where("category && ARRAY[?]::varchar[] AND id != ?", params[:ages], @top_result[0].id)    
+                else
+                    @services = Service
+                        .where("id != ?", @top_result[0].id)   
+                end
+            else
+                if params[:ages]
+                    @services = Service
+                        .where("category && ARRAY[?]::varchar[]", params[:ages])                 
+                else
+                    @services = Service                        
+                end
+            end
         else
             redirect_to search_services_path, :notice => "Couldn't find any services near that location. Please make sure your location is a valid Camden area."
-        end
+        end      
+
     end 
 
 end

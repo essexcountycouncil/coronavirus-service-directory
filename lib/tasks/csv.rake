@@ -48,20 +48,20 @@ task :csv => :environment do
         service.category = categories
 
 
-        age_group = []
+        ages = []
         if row[8] && row[8].downcase.strip == "yes"
-            age_group.push("younger children")
+            ages.push("younger children")
         end
         if row[9] && row[9].downcase.strip == "yes"
-            age_group.push("older children")
+            ages.push("older children")
         end
         if row[10] && row[10].downcase.strip == "yes"
-            age_group.push("adults")
+            ages.push("adults")
         end
         if row[11] && row[11].downcase.strip == "yes"
-            age_group.push("all ages")
+            ages.push("all ages")
         end
-        service.age = age_group    
+        service.age = ages    
 
         service.url = row[12]
         service.phone = row[13]
