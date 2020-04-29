@@ -40,7 +40,7 @@ task :csv => :environment do
             categories.push("Support for older children")
         end
         if row[10] && row[10].downcase.strip == "yes"
-            categories.push("Adult support")
+            categories.push("Support for adults")
         end
         if row[11] && row[11].downcase.strip == "yes"
             categories.push("Support for all ages")

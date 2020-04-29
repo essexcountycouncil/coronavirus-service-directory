@@ -10,7 +10,7 @@ class Service < ApplicationRecord
       ["Staying active and curious", "Staying active and curious"],
       ["Support for younger children", "Support for younger children"],
       ["Support for older children", "Support for older children"],
-      ["Adult support", "Adult support"],
+      ["Support for adults", "Support for adults"],
       ["Support for all ages", "Support for all ages"]
     ]
   end
