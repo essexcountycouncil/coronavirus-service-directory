@@ -44,6 +44,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
   margin-bottom: -20px;
+  &.age {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .checkbox{

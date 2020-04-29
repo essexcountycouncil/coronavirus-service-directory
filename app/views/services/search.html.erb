@@ -16,7 +16,7 @@
 
 <%= form_with url: services_path, method: :get, local: true do |f| %>
     
-    <% if notice %><p class="error"><%= notice %></p><%end%>
+    <% if notice %><p class="error"><%= notice %></p><%end%>    
     
     <fieldset class="field">
         <legend class="field__label"><h2>What do you need help with?</h2></legend>
@@ -27,9 +27,9 @@
                     <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c[1] %>" id="<%= c[1] %>">
                     <label class="checkbox__label" for="<%= c[1] %>"><%= c[0] %></label>
                 </div>
-            <% end %>               
+            <% end %>                         
         </div>
-    </fieldset>
+    </fieldset>  
 
     <%= f.submit "See results", class: "button" %>
 <% end %>

@@ -5,6 +5,7 @@ class ServicesController < ApplicationController
     end
 
     def index
+        @ages = Service.ages
         results = search
 
         if params[:categories].blank?
