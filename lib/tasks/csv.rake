@@ -32,34 +32,22 @@ task :csv => :environment do
         end
         if row[7] && row[7].downcase.strip == "yes"
             categories.push("Staying active and curious")
-        end       
-        if row[8] && row[8].downcase.strip == "yes"
-            categories.push("Support for younger children")
-        end
-        if row[9] && row[9].downcase.strip == "yes"
-            categories.push("Support for older children")
-        end
-        if row[10] && row[10].downcase.strip == "yes"
-            categories.push("Adult support")
-        end
-        if row[11] && row[11].downcase.strip == "yes"
-            categories.push("Support for all ages")
-        end        
+        end              
         service.category = categories
 
 
         ages = []
         if row[8] && row[8].downcase.strip == "yes"
-            ages.push("younger children")
+            ages.push("Younger children")
         end
         if row[9] && row[9].downcase.strip == "yes"
-            ages.push("older children")
+            ages.push("Older children")
         end
         if row[10] && row[10].downcase.strip == "yes"
-            ages.push("adults")
+            ages.push("Adults")
         end
         if row[11] && row[11].downcase.strip == "yes"
-            ages.push("all ages")
+            ages.push("All ages")
         end
         service.age = ages    
 

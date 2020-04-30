@@ -7,10 +7,6 @@
 </div>
 
 <ol class="service-results">
-    <% @top_result.each do |s| %>
-        <%= render partial: "shared/service_card", locals: {s: s, recommended: true} %>
-    <% end %>
-
     <% @services.each do |s| %>
         <%= render partial: "shared/service_card", locals: {s: s, recommended: false} %>
     <% end %>
