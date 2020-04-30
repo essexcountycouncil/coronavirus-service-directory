@@ -3,14 +3,11 @@
       <ol>
         <li><a href="/">Home</a></li>
         <li><a href="https://www.essex.gov.uk/topic/coronavirus">Coronavirus</a></li>
-        <li>Get self-isolation help</li>
+        <li><a href="/">Get self-isolation help</a></li>
+        <li>Results</li>
       </ol>
-    </nav>    
-    <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
-
-    <p class="lede">Use this service to find support groups, local services and other resources to help you cope during the coronavirus pandemic.</p>
-
-    <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
+    </nav>
+    <h1 class="page-title">Your results</h1>
 </div>
 
 <%= form_with url: services_path, method: :get, local: true do |f| %>
@@ -19,7 +16,6 @@
     
     <fieldset class="field">
         <legend class="field__label"><h2>What do you need help with?</h2></legend>
-        <p class="field__hint">Select as many as you like</p>
         <div class="checkboxes">
             <% @categories.each do |c| %>
                 <div class="checkbox">
@@ -31,8 +27,8 @@
     </fieldset>
 
     <fieldset class="field">
-        <legend class="field__label"><h2>Filter by age group</h2></legend>
-        <!-- <p class="field__hint">Select as many as you like</p> -->
+        <!-- <legend class="field__label">Filter by age group</legend> -->
+        <p class="field__hint">Filter by age group</p>
         <div class="checkboxes age">
             <% @ages.each do |a| %>
                 <div class="checkbox">
