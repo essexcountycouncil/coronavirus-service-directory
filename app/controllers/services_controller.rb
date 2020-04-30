@@ -2,41 +2,32 @@ class ServicesController < ApplicationController
 
     def search
         @categories = Service.categories
+        @ages = Service.ages
     end
 
     def index
-        results = search
+        results = search     
 
-        if params[:categories].blank?
+        if params[:categories].blank? 
             redirect_to search_services_path, :notice => "Please make sure you have selected an area you need help with."
+        elsif params[:ages].blank?
+            redirect_to search_services_path, :notice => "Please make sure you have selected an age group."
         end        
 
         if results.length > 0
-            @top_result = Service
-                .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories])
-                .limit(1)
 
             @result = results.first
 
-            if @top_result.length > 0
-                if params[:categories]
-                    @services = Service
-                        .where("category && ARRAY[?]::varchar[] AND id != ?", params[:categories], @top_result[0].id)    
-                else
-                    @services = Service
-                        .where("id != ?", @top_result[0].id)   
-                end
+            if params[:categories] && params[:ages]
+                @services = Service
+                    .where("category && ARRAY[?]::varchar[]", params[:categories]).where("age && ARRAY[?]::varchar[]", params[:ages])                 
             else
-                if params[:categories]
-                    @services = Service
-                        .where("category && ARRAY[?]::varchar[]", params[:categories])                 
-                else
-                    @services = Service                        
-                end
+                @services = Service                        
             end
-        else
-            redirect_to search_services_path, :notice => "Couldn't find any services near that location. Please make sure your location is a valid Camden area."
-        end
+        else            
+            redirect_to search_services_path, :notice => "Couldn't find any services. Sorry."
+        end      
+
     end 
 
 end

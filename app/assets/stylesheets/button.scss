@@ -1,6 +1,7 @@
 @import "_variables.scss";
 
 @mixin button {
+  margin-bottom: $baseline;
   @media print {
     display: none;
   }
