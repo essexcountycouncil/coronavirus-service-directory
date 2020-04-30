@@ -35,7 +35,7 @@
 }
 
 .main-content-area{
-  background: $white;
+  background: $grey-lighter;
   padding-bottom: $baseline;
 }
 
@@ -82,8 +82,9 @@
 }
 
 .important{
+  background: $white;
   padding: $baseline*0.5;
-  border: $border-thick solid $info;
+  border: $border-thick solid $black;
   .important__link{
     display: inline-block;
     margin-top: 10px;
@@ -108,7 +109,7 @@
 }
 
 .beta-banner{
-  background: $grey-lighter;
+  background: $white;
   padding: 10px 0px;
   .beta-banner__inner{
     display: flex;
