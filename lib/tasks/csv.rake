@@ -32,6 +32,7 @@ task :csv => :environment do
         end
         if row[7] && row[7].downcase.strip == "yes"
             categories.push("Staying active and curious")
+        end
         service.category = categories
 
 
