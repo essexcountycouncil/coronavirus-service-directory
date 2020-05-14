@@ -7,15 +7,17 @@ class Service < ApplicationRecord
       ["Separation and loss", "Separation and loss"],
       ["Manging and coping with anxiety", "Manging and coping with anxiety"],
       ["Maintaining healthy relationships", "Maintaining healthy relationships"],
+      ["SEND", "SEND"],
       ["Staying active and curious", "Staying active and curious"]
     ]
   end
 
   def self.ages
     [
-      ["Younger children", "Younger children"],
-      ["Older children", "Older children"],
-      ["Adults", "Adults"],
+      ["Child", "Child"],
+      ["Young person", "Young person"],
+      ["Parent", "Parent"],
+      ["Adult", "Adult"],
       ["All ages", "All ages"]
     ]    
   end
