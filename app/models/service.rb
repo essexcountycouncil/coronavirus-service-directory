@@ -7,7 +7,8 @@ class Service < ApplicationRecord
       ["Separation and loss", "Separation and loss"],
       ["Manging and coping with anxiety", "Manging and coping with anxiety"],
       ["Maintaining healthy relationships", "Maintaining healthy relationships"],
-      ["Staying active and curious", "Staying active and curious"]
+      ["Staying active and curious", "Staying active and curious"],
+      ["Education and learning", "Education and learning"]
     ]
   end
 
