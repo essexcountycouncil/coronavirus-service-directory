@@ -7,7 +7,7 @@
             <p class="h2"><% if s.url %><a href="<%= s.url %>"><%= s.name %></a><% end %></p>
             <p class="service-card__description"><%= s.description %></p>
             <% if s.phone %><p class="service-card__phone"><%= s.phone %> </p><% end %>
-            <% if s.email %><p class="service-card__email"><a href="mailto:<%= s.email %>%">Contact by email</a></p><% end %>
+            <% if s.email %><p class="service-card__email"><a href="mailto:<%= s.email %>">Contact by email</a></p><% end %>
             <p class="service-card__contact-prompt"><small><%= s.how_to_contact %></small></p>
           </div>
         </div>
