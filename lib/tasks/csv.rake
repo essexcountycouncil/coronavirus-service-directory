@@ -26,50 +26,44 @@ task :csv => :environment do
         end
         if row[5] && row[5].downcase.strip == "yes"
             categories.push("Manging and coping with anxiety")
-        end
+        end     
         if row[6] && row[6].downcase.strip == "yes"
-            categories.push("SEND")
-        end        
-        if row[7] && row[7].downcase.strip == "yes"
             categories.push("Maintaining healthy relationships")
         end
-        if row[8] && row[8].downcase.strip == "yes"
+        if row[7] && row[7].downcase.strip == "yes"
             categories.push("Staying active and curious")
-        end
-        if row[9] && row[9].downcase.strip == "yes"
-            categories.push("Education and learning")
-        end        
+        end      
         service.category = categories
 
 
         ages = []
-        if row[10] && row[10].downcase.strip == "yes"
+        if row[8] && row[8].downcase.strip == "yes"
             ages.push("Child")
         end
-        if row[11] && row[11].downcase.strip == "yes"
+        if row[9] && row[9].downcase.strip == "yes"
             ages.push("Young person")
         end
-        if row[12] && row[12].downcase.strip == "yes"
+        if row[10] && row[10].downcase.strip == "yes"
             ages.push("Parent")
         end
-        if row[13] && row[13].downcase.strip == "yes"
+        if row[11] && row[11].downcase.strip == "yes"
             ages.push("Adult")
         end        
-        if row[14] && row[14].downcase.strip == "yes"
+        if row[12] && row[12].downcase.strip == "yes"
             ages.push("All ages")
         end
         service.age = ages    
 
-        service.url = row[15]
-        service.phone = row[16]
-        service.email = row[17]
-        service.postcode = row[18]
+        service.url = row[13]
+        service.phone = row[14]
+        service.email = row[15]
+        service.postcode = row[16]
         # ...
-        service.recommended = row[21]
-        service.key_point_1 = row[22]
-        service.key_point_2 = row[23]
-        service.key_point_3 = row[24]
-        service.how_to_contact = row[25]
+        service.recommended = row[19]
+        service.key_point_1 = row[20]
+        service.key_point_2 = row[21]
+        service.key_point_3 = row[22]
+        service.how_to_contact = row[23]
 
         service.save
     end

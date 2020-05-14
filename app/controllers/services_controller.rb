@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
         if params[:categories].blank? 
             redirect_to search_services_path, :notice => "Please make sure you have selected an area you need help with."
         elsif params[:ages].blank?
-            redirect_to search_services_path, :notice => "Please make sure you have selected an age group."
+            redirect_to search_services_path, :notice => "Please make sure you have filtered by"
         end        
 
         if results.length > 0
