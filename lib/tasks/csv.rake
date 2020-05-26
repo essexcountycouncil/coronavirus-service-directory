@@ -25,13 +25,13 @@ task :csv => :environment do
             categories.push("Separation and loss")
         end
         if row[5] && row[5].downcase.strip == "yes"
-            categories.push("Manging and coping with anxiety")
+            categories.push("Managing and coping with anxiety")
         end     
         if row[6] && row[6].downcase.strip == "yes"
             categories.push("Maintaining healthy relationships")
         end
         if row[7] && row[7].downcase.strip == "yes"
-            categories.push("Staying active and curious")
+            categories.push("Staying active")
         end  
         if row[8] && row[8].downcase.strip == "yes"
             categories.push("Education and learning")
