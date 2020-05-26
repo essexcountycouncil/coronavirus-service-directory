@@ -18,7 +18,7 @@
 
 
 <ol class="service-results">
-    <% @services.each do |s| %>
+    <% @services.order(name: :asc).each do |s| %>
         <%= render partial: "shared/service_card", locals: {s: s, recommended: false} %>
     <% end %>
 </ol>
