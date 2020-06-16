@@ -45,9 +45,8 @@
     </fieldset>
 
     <fieldset class="field">
-        <!-- <legend class="field__label">Filter by age group</legend> -->
-        <p class="field__hint h4">Filter results by</p>
-        <div class="checkboxes age">
+        <legend class="field__label"><h2>Who do you need this help for?</h2></legend>
+        <div class="checkboxes">
             <% @ages.each do |a| %>
                 <div class="checkbox">
                     <input class="checkbox__input" type="checkbox" name="ages[]" value="<%= a[1] %>" id="<%= a[1] %>">
